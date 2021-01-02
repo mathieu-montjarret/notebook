@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Notebook | Modification du contact 
+{% endblock %}
+
+{% block body %}
+	<h1 class="d-flex justify-content-center my-5">Modification des informations du contact</h1>
+
+
+    {{ form(formContact, {'attr': {'class': 'col-8 text-center mx-auto'}}) }}
+
+{% endblock %}

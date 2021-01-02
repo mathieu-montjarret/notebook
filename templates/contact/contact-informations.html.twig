@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Notebook | Ma liste de contacts
+{% endblock %}
+
+{% block body %}
+	<h1 class="d-flex justify-content-center my-5">Ma liste de contacts</h1>
+
+	<table class="table table-bordered">
+		<tr>
+			<th class="text-center">username</th>
+			<th class="text-center">lastname</th>
+			<th class="text-center">firstname</th>
+			<th class="text-center">mail</th>
+			<th class="text-center">phone</th>
+			<th class="text-center">address</th>
+			<th class="text-center">edit</th>
+			<th class="text-center">delete</th>
+		</tr> 
+
+		{% for data in app.user.contacts %}
+
+		<tr>
+			<td class="text-center">{{ data.username }}</td>
+			<td class="text-center">{{ data.lastname }}</td>
+			<td class="text-center">{{ data.firstname }}</td>
+			<td class="text-center">{{ data.mail }}</td>
+			<td class="text-center">{{ data.phone }}</td>
+			<td class="text-center">{{ data.address }}</td>
+			<td class="text-center"><a class="text-dark" href="{{ path('contact-edit', {'id': data.id}) }}"><i class="far fa-edit"></i></a></td>
+			<td class="text-center"><a class="text-dark" href="{{ path('contact-delete', {'id': data.id}) }}" onclick="return(confirm('Voulez vous vraiment supprimer ce contact?'))"><i class="far fa-trash"></i></a></td>
+		</tr>
+			
+		{% endfor %}
+
+	</table>
+
+	
+
+
+{% endblock %}

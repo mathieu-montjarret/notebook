@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Notebook | Mes informations
+{% endblock %}
+
+{% block body %}
+	<h1 class="d-flex justify-content-center my-5">Mes informations</h1>
+
+	{% for message in app.flashes('message') %}
+		<div class="alert alert-success" role="alert">
+			{{message}}
+		</div>
+	{% endfor %}
+
+	<table class="table table-bordered">
+		<tr>
+			<th class="text-center">username</th>
+			<th class="text-center">lastname</th>
+			<th class="text-center">firstname</th>
+			<th class="text-center">mail</th>
+			<th class="text-center">phone</th>
+			<th class="text-center">address</th>
+			<th class="text-center">edit</th>
+		</tr>
+		<tr>
+			<td class="text-center">{{ app.user.username}}</td>
+			<td class="text-center">{{ app.user.lastname}}</td>
+			<td class="text-center">{{ app.user.firstname}}</td>
+			<td class="text-center">{{ app.user.mail}}</td>
+			<td class="text-center">{{ app.user.phone}}</td>
+			<td class="text-center">{{ app.user.address}}</td>
+			<td class="text-center"><a class="text-dark" href="{{ path('admin-edit-profile') }}"><i class="far fa-edit"></i></a></td>
+			
+		</tr>
+	</table>
+
+
+{% endblock %}
